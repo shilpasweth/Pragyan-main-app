@@ -304,6 +304,10 @@ public class UpcomingActivity extends AppCompatActivity {
 
             sort(tempeve, temptime, no);
         }
+
+        StorePresent.storepresent=present ;
+        StorePresent.storetime=prtime;
+
         RecycleList adapter = new
                 RecycleList(UpcomingActivity.this, present,prtime,t,Number);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclelist);
