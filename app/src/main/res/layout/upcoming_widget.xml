@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/singlelistlayout">
+    android:id="@+id/singlelistlayout"
+    android:background="@color/pragyan_gold">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/Event"
+        android:id="@+id/widgetEvent"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_alignParentTop="true"
@@ -18,7 +19,7 @@
         android:textColor="@color/pragyan_dark_grey"
         android:textStyle="bold"
         android:textAllCaps="true"
-        android:layout_toLeftOf="@+id/Cate"
+        android:layout_toLeftOf="@+id/widgetCate"
         android:layout_marginRight="10dp"
         android:layout_alignParentRight="false" />
 
@@ -26,49 +27,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/Time"
+        android:id="@+id/widgetTime"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:text="begins in 12 hours 10 mins"
         android:textColor="@color/pragyan_dark_grey"
-        android:layout_alignTop="@+id/Event"
-        android:layout_toRightOf="@+id/line"
+        android:layout_alignTop="@+id/widgetEvent"
+        android:layout_toRightOf="@+id/widgetline"
         android:layout_marginLeft="-170dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/Location"
-        android:layout_below="@+id/Event"
-        android:layout_alignLeft="@+id/Event"
-        android:layout_alignStart="@+id/Event"
+        android:id="@+id/widgetLocation"
+        android:layout_below="@+id/widgetEvent"
+        android:layout_alignLeft="@+id/widgetEvent"
+        android:layout_alignStart="@+id/widgetEvent"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:text="aaaaa"
         android:textColor="@color/pragyan_dark_grey"
-        android:layout_toLeftOf="@+id/Cate"
+        android:layout_toLeftOf="@+id/widgetCate"
         android:layout_marginRight="5dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/describe"
-        android:layout_alignRight="@+id/Time"
-        android:layout_alignEnd="@+id/Time"
-        android:layout_alignTop="@+id/Location" />
+    
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/Cate"
+        android:id="@+id/widgetCate"
         android:textColor="@color/pragyan_dark_grey"
         android:layout_alignParentRight="false"
-        android:layout_alignTop="@+id/Location"
-        android:layout_alignLeft="@+id/Time"
+        android:layout_alignTop="@+id/widgetLocation"
+        android:layout_alignLeft="@+id/widgetTime"
         android:textAllCaps="false"
         android:layout_marginRight="5dp"
         android:textSize="15dp"
@@ -78,9 +73,9 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:id="@+id/line"
+        android:id="@+id/widgetline"
         android:maxHeight="2dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/Cate"
+        android:layout_below="@+id/widgetCate"
         android:background="#ffffff" />
 </RelativeLayout>
