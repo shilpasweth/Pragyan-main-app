@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:weightSum="10"
+    android:layout_height="match_parent"
+    android:id="@+id/singlelistlayout"
+    android:background="@color/pragyan_gold">
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/Prev"
+        android:background="#9affc832"
+        android:layout_weight="1"
+        android:text="&lt;" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="8"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:id="@+id/widgetEvent"
+                android:textColor="@color/pragyan_dark_grey"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:text="EVENT"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="1dp"
+                android:id="@+id/widgetLocation"
+
+                android:text="Barn Grounds"
+                android:textColor="@color/pragyan_dark_grey"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:id="@+id/widgetTime"
+
+                android:text="begins in 00 hours 00 mins"
+                android:textColor="@color/pragyan_dark_grey"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="1dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/widgetCate"
+                android:textColor="@color/pragyan_dark_grey"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/Next"
+        android:background="#9affc832"
+        android:layout_weight="1"
+        android:text=">" />
+
+
+</LinearLayout>

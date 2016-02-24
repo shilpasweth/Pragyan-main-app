@@ -110,19 +110,24 @@ public class RecycleList extends RecyclerView.Adapter<RecycleList.CustomViewHold
 
             a =((int)((time5.getTimeInMillis() - timenow.getTimeInMillis())/3600000));
             b =((int)((time5.getTimeInMillis() - timenow.getTimeInMillis())/60000))%60;
-
-            customViewHolder.Time.setText("begins in " + a + " hours " + b + " mins ");
+            if(a!=0)
+                customViewHolder.Time.setText("begins in " + a + " hours " + b + " mins ");
+            else
+                customViewHolder.Time.setText("begins in "  + b + " mins ");
         }
         //calculates time left for end of an ongoing event
         else if (time6.before(timenow)) {
 
-            customViewHolder.Time.setText("ends in 0 hours 0 mins ");
+            customViewHolder.Time.setText("ends in 0 mins ");
         }
         else {
 
             c = ((int)((time6.getTimeInMillis() - timenow.getTimeInMillis())/3600000));
             d =((int)((time6.getTimeInMillis() - timenow.getTimeInMillis())/60000))%60;
-            customViewHolder.Time.setText("ends in " + c + " hours " + d + " mins ");
+            if(c!=0)
+                customViewHolder.Time.setText("ends in " + c + " hours " + d + " mins ");
+            else
+                customViewHolder.Time.setText("ends in "  + d + " mins ");
         }
     }
 

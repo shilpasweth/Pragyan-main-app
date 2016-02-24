@@ -1,6 +1,11 @@
 package com.delta.pragyan16;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,6 +71,7 @@ public class UpcomingActivity extends AppCompatActivity {
         savedInstanceState.putInt("spinner1", spinner.getSelectedItemPosition());
         savedInstanceState.putInt("spinner2", spinnertime.getSelectedItemPosition());
         savedInstanceState.putInt("spinner3", spinnercate.getSelectedItemPosition());
+        parseevents();
     }
 
 
@@ -294,6 +300,21 @@ public class UpcomingActivity extends AppCompatActivity {
                             handlerecycle();
                             optsel();
                             optsel();
+                            String[][] temps=tempeve;
+                            int[][] temt=temptime;
+                            StorePresent.storepresent=temps ;
+                            StorePresent.storetime=temt;
+                            StorePresent.si=no;
+
+
+        //prepare Alarm Service to trigger Widget
+        Intent intenttime = new Intent(UpcomingWidget.MY_WIDGET_UPDATE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intenttime, 0);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(Calendar.SECOND, 10);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 60 * 1000, pendingIntent);
     }
 
 
@@ -305,8 +326,13 @@ public class UpcomingActivity extends AppCompatActivity {
             sort(tempeve, temptime, no);
         }
 
-        StorePresent.storepresent=present ;
-        StorePresent.storetime=prtime;
+        Intent intent = new Intent(this, UpcomingWidget.class);
+        intent.setAction("android.appwidget.action.APPWIDGET_UPDATE");
+        int ids[] = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), UpcomingWidget.class));
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+        sendBroadcast(intent);
+
+
 
         RecycleList adapter = new
                 RecycleList(UpcomingActivity.this, present,prtime,t,Number);
@@ -321,6 +347,8 @@ public class UpcomingActivity extends AppCompatActivity {
         else{
             texx.setText(null);
         }
+
+
 
 
     }
